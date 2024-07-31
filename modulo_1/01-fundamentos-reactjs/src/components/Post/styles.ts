@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { colors } from "../../styles";
 import { Button } from "../Sidebar/styles";
 
+type PropsHidden = {
+    isFocus: boolean;
+}
+
 export const Article = styled.article`
     position: relative;
     display: block;
@@ -15,25 +19,42 @@ export const Article = styled.article`
         font-weight: bold;
         margin-right: 12px;
     }
+
     .author {
         display: flex;
         align-items: center;
         gap: 20px;
     }
+
     p{
         margin: 25px  12px;
     }
 
-    time {
-        position: absolute;
-        top: 60px;
-        right: 12px;
+    .commentList {
+        margin-top: 2rem;
     }
-
     
 `
 export const AuthorInfo = styled.div`
     display: block;
+`
+
+export const HiddenButton = styled.div<PropsHidden>`
+    display: ${props => props.isFocus ? 'block' : 'none'};
+`
+
+export const TimePost = styled.time`
+
+    position: absolute;
+    font-size: 0.875rem;
+    top: 60px;
+    right: 12px;
+    
+    span {
+        @media (max-width: 768px) {
+            visibility: hidden;
+        }
+    }
 `
 
 export const  FormContainer = styled.form`

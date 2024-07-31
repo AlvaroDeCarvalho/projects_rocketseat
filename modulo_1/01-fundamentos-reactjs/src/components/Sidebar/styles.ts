@@ -21,6 +21,11 @@ export const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
     }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        
+    }
     `
 
 export const Aside  = styled.aside`

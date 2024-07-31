@@ -24,8 +24,7 @@ function Sidebar() {
                 <footer>
                     <S.Button>
                         <PencilLine  size={20}/>
-                        Editar Perfil
-                        
+                        Editar Perfil  
                     </S.Button>
                 </footer>
             </S.Aside>

@@ -1,9 +1,14 @@
 import * as S from './styles'
+import {useState} from 'react'
 import {ImageProfile} from '../Sidebar/styles'
 import { Button } from '../Sidebar/styles'
+import Comment from '../Comment'
 function Post() {
 
+    const [isFocus, setIsFocus] = useState(false)
 
+    
+    console.log(isFocus)
     return(
         <S.Article>
             <div className='author'>
@@ -15,7 +20,7 @@ function Post() {
                 <span>Web Developer</span>
             </S.AuthorInfo>
             </div>
-            <time dateTime="2024-07-30">publicado há 1h</time>
+            <S.TimePost dateTime="2024-07-30"><span>publicado</span> há 1h</S.TimePost>
 
             <div className="content">
                 <p> Fala galeraa 👋</p>
@@ -36,12 +41,20 @@ function Post() {
                 <strong>Deixe seu comentario</strong>
 
                 <textarea 
+                onFocus={() => setIsFocus(true)}
+                onBlur={() => setIsFocus(false)}
                 placeholder='escreva aqui seu comentario'
                 />
-                <footer>
+                <S.HiddenButton isFocus={isFocus}>
                 <Button type="native">Publicar</Button>
-                </footer>
+                </S.HiddenButton>
             </S.FormContainer>
+
+            <div className="commentList">
+            <Comment />
+            <Comment />
+            <Comment />
+            </div>
         </S.Article>
     )
 }
