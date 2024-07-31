@@ -1,31 +1,44 @@
+import {format, formatDistanceToNow} from 'date-fns'
+
 import * as S from './styles'
 import {useState} from 'react'
 import {ImageProfile} from '../Sidebar/styles'
 import { Button } from '../Sidebar/styles'
 import Comment from '../Comment'
-function Post() {
+import { ptBR } from 'date-fns/locale'
 
+
+function Post({id, author,content,data}: User) {
+
+    const publishedDatrFormatted = format(data, "d LLLL 'ás' HH:mm'h'", {
+        locale: ptBR,
+    })
     const [isFocus, setIsFocus] = useState(false)
 
     
-    console.log(isFocus)
+    const publishedDateRelativeToNow = formatDistanceToNow(data, {
+        locale: ptBR,
+        addSuffix: true 
+    })
+
+    
     return(
         <S.Article>
             <div className='author'>
             <ImageProfile 
             type='profile'
-            src='https://github.com/AlvaroDeCarvalho.png' />
+            src={author.avatarUrl} />
             <S.AuthorInfo>
-                <h4>Alvaro Carvalho</h4>
-                <span>Web Developer</span>
+                <h4>{author.name}</h4>
+                <span>{author.role}</span>
             </S.AuthorInfo>
             </div>
-            <S.TimePost dateTime="2024-07-30"><span>publicado</span> há 1h</S.TimePost>
+            <S.TimePost dateTime={'2022-05-11 08:13:30'} title= {publishedDatrFormatted}>{publishedDateRelativeToNow}</S.TimePost>
 
             <div className="content">
                 <p> Fala galeraa 👋</p>
 
-                <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
+                <p>{content.content}</p>
 
                 <p>
                     👉 <a href="#">jane.design/doctorcare</a>
@@ -51,8 +64,6 @@ function Post() {
             </S.FormContainer>
 
             <div className="commentList">
-            <Comment />
-            <Comment />
             <Comment />
             </div>
         </S.Article>

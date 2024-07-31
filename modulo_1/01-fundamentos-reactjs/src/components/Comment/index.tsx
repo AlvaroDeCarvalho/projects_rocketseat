@@ -15,7 +15,7 @@ function Comment() {
                         <time dateTime="2024-07-30"><span>cerca de</span> 1h <span>atras</span></time>
                     </header>
 
-                    <p> Fala galeraa 👋</p>       
+                    <p> Parabensss 👋</p>       
 
                 <button title='deletar o comentario' className='buttonDelete'>
                     <Trash size={24} color='#fff'/>
