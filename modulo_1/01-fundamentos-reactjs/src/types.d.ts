@@ -8,6 +8,7 @@ declare interface User {
     content: {
         type: string, 
         content:string
+        id?: number
     },
     data: Date
 }

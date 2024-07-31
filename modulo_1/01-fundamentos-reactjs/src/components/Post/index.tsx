@@ -1,15 +1,26 @@
 import {format, formatDistanceToNow} from 'date-fns'
+import {useState} from 'react'
 
 import * as S from './styles'
-import {useState} from 'react'
 import {ImageProfile} from '../Sidebar/styles'
 import { Button } from '../Sidebar/styles'
 import Comment from '../Comment'
-import { ptBR } from 'date-fns/locale'
+import {ptBR } from 'date-fns/locale'
 
 
-function Post({id, author,content,data}: User) {
 
+function Post({id, author, content, data}: User) {
+
+    const [comments, setComments]= useState<string[]>([])
+
+    const handleCommit = (e:any) => {
+            e.preventDefault()
+            setComments([...comments,e.target[0].value])
+            console.log(e)
+           
+    }
+
+   
     const publishedDatrFormatted = format(data, "d LLLL 'ás' HH:mm'h'", {
         locale: ptBR,
     })
@@ -21,7 +32,6 @@ function Post({id, author,content,data}: User) {
         addSuffix: true 
     })
 
-    
     return(
         <S.Article>
             <div className='author'>
@@ -50,21 +60,25 @@ function Post({id, author,content,data}: User) {
                     <a href="#">#nlw </a>
                 </p>
             </div>
-            <S.FormContainer>
+            <S.FormContainer onSubmit={(e) => handleCommit(e)}>
                 <strong>Deixe seu comentario</strong>
 
                 <textarea 
                 onFocus={() => setIsFocus(true)}
-                onBlur={() => setIsFocus(false)}
+                
                 placeholder='escreva aqui seu comentario'
                 />
                 <S.HiddenButton isFocus={isFocus}>
-                <Button type="native">Publicar</Button>
+                <Button typeOfButton="native" type='submit' >Publicar</Button>
                 </S.HiddenButton>
             </S.FormContainer>
 
             <div className="commentList">
-            <Comment />
+                {
+                    comments.map((comment, index) => (
+                        <Comment key={index} comments={comment} />
+                    ))
+                }
             </div>
         </S.Article>
     )

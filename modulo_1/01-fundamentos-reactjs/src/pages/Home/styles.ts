@@ -9,5 +9,10 @@ export const WrapperHome = styled.div`
     grid-template-columns: 256px 1fr;
     gap: 24px;
     align-items: flex-start;
+    
+    @media (max-width: 768px) {
 
+        grid-template-columns: 1fr;
+
+    }
 `

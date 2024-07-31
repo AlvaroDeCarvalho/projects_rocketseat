@@ -1,7 +1,13 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
 import * as S from './styles'
 
-function Comment() {
+interface CommentProps {
+
+    comments?: string;
+
+}
+
+function Comment({comments}: CommentProps) {
     return (
         <S.CommentContainer>
             <S.Avatar src="https://github.com/AlvaroDeCarvalho.png" alt="" />
@@ -15,8 +21,7 @@ function Comment() {
                         <time dateTime="2024-07-30"><span>cerca de</span> 1h <span>atras</span></time>
                     </header>
 
-                    <p> Parabensss 👋</p>       
-
+                    <p>{comments}</p>
                 <button title='deletar o comentario' className='buttonDelete'>
                     <Trash size={24} color='#fff'/>
                 </button>

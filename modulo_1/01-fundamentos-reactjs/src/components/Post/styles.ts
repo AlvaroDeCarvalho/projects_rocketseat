@@ -61,7 +61,7 @@ export const  FormContainer = styled.form`
     width: 100%;
     margin-top:1.5rem ;
     padding-top: 1.5rem;
-    border-top: 1px solid ${colors.gray600};
+    border-top: 1px solid #000;
 
     ${Button}{
         margin: 1rem 0 0 0;

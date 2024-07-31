@@ -129,7 +129,7 @@ const users: User[] = [
         },
         content: {
             type: 'paragraph', 
-            content: 'Atualizando a arquitetura do backend para suportar mais usuários.'
+            content: 'Atualizando a arquitetura do backend para suportar mais usuários.',
         },
         data: new Date('2022-10-05 12:00:00')
     }

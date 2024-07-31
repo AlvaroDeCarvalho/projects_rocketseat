@@ -6,7 +6,7 @@ type PropsImg = {
     marginTop?: number
 }
 type PropsButton = {
-    type?: 'native'
+    typeOfButton?: 'native'
 }
 export const Wrapper = styled.div`
     padding: 0 1rem;
@@ -23,9 +23,9 @@ export const Wrapper = styled.div`
 
 export const Button = styled.button<PropsButton>`
 
-    width: ${props => props.type == 'native' ? '90px': '100$%'};
-    background-color:${(props) => props.type == 'native' ? `${colors.green500}`: 'transparent'} ;
-    color: ${props => props.type == 'native'? '#fff': `${colors.green500}`};
+    width: ${props => props.typeOfButton == 'native' ? '90px': '100$%'};
+    background-color:${(props) => props.typeOfButton == 'native' ? `${colors.green500}`: 'transparent'} ;
+    color: ${props => props.typeOfButton == 'native'? '#fff': `${colors.green500}`};
     border-radius: 8px;
     border: 1px solid ${colors.green500};
     height: 50px;
