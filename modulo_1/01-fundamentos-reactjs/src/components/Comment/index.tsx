@@ -1,13 +1,23 @@
 import { ThumbsUp, Trash } from 'phosphor-react';
 import * as S from './styles'
+import { useState } from 'react';
 
 interface CommentProps {
-
     comments?: string;
-
+    onHandleDalete: (comment: string) => void
 }
 
-function Comment({comments}: CommentProps) {
+function Comment({comments, onHandleDalete}: CommentProps) {
+
+    const [likeThePost, setLikeThePost] = useState<number>(10)
+    const [isClick, SetIsClick] = useState<boolean>(true)
+    const handleAddLikePost = () => { 
+        if(isClick){
+            setLikeThePost(likeThePost + 1)
+        }
+        SetIsClick(false)
+    }
+
     return (
         <S.CommentContainer>
             <S.Avatar src="https://github.com/AlvaroDeCarvalho.png" alt="" />
@@ -22,18 +32,25 @@ function Comment({comments}: CommentProps) {
                     </header>
 
                     <p>{comments}</p>
-                <button title='deletar o comentario' className='buttonDelete'>
-                    <Trash size={24} color='#fff'/>
+                <button
+                onClick={() => onHandleDalete(comments as string)}
+                 title='deletar o comentario' 
+                className='buttonDelete'
+                >
+                    <Trash size={24} />
                 </button>
                 </div>
 
 
                 <footer>
-                    <button className='likeButton'>
+                    <button 
+                    onClick={() => handleAddLikePost(!isClick)}
+                    className='likeButton'
+                    >
 
                          <ThumbsUp size={18} />
 
-                       Aplaudir <span></span> 20 
+                       Aplaudir <span></span> {likeThePost} 
                     
                     </button>
                 </footer>

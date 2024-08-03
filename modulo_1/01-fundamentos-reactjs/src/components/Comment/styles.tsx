@@ -44,6 +44,10 @@ export const CommentContainer = styled.div`
         position: absolute;
         right: 16px;
         top: 3.5rem;
+        color:#fff;
+        :hover {
+            color: red;
+        }
     }
 
     .authorAndTime {

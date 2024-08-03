@@ -11,12 +11,20 @@ import {ptBR } from 'date-fns/locale'
 
 function Post({id, author, content, data}: User) {
 
+    
     const [comments, setComments]= useState<string[]>([])
-
+    const [thatComment, setThatComment] = useState<string>('')
+    const deleteComments = (IsComment: string) => {
+        const commentsWithoutDelets = comments.filter((commentItem) => {
+            return commentItem !== IsComment
+        })
+        setComments(commentsWithoutDelets)
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleCommit = (e:any) => {
             e.preventDefault()
-            setComments([...comments,e.target[0].value])
-            console.log(e)
+            setComments([...comments, thatComment])
+            setThatComment('')
            
     }
 
@@ -65,8 +73,9 @@ function Post({id, author, content, data}: User) {
 
                 <textarea 
                 onFocus={() => setIsFocus(true)}
-                
                 placeholder='escreva aqui seu comentario'
+                onChange= {(e) => setThatComment(e.target.value)}
+                value={thatComment}
                 />
                 <S.HiddenButton isFocus={isFocus}>
                 <Button typeOfButton="native" type='submit' >Publicar</Button>
@@ -76,7 +85,8 @@ function Post({id, author, content, data}: User) {
             <div className="commentList">
                 {
                     comments.map((comment, index) => (
-                        <Comment key={index} comments={comment} />
+                        <Comment key={index} comments={comment} onHandleDalete={deleteComments} />
+                        
                     ))
                 }
             </div>
