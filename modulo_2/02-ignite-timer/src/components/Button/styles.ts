@@ -14,16 +14,11 @@ interface ButtonContainerProps {
 } */
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
-  background-color: ${(props) => {
-    switch (props.variant) {
-      case 'primary':
-        return props.theme.primary
-      case 'secondary':
-        return props.theme.secondary
-      case 'danger':
-        return props.theme.danger
-      case 'success':
-        return props.theme.success
-    }
-  }};
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 22px;
+
+  background-color: ${(props) => props.theme['green-500']};
 `
