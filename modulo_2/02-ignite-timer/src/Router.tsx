@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { DefaultLayout } from './layout/defaultLayout'
+import { DefaultLayout } from './layout/DefaultLayout'
 import { Home } from './pages/Home'
 
 export function RouterContainer() {
@@ -7,7 +7,6 @@ export function RouterContainer() {
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/exemplo" element={<h1>Exemplo</h1>} />
       </Route>
     </Routes>
   )
