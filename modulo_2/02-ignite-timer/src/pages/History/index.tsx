@@ -21,25 +21,33 @@ export function History() {
               <td>Conserto de debitos tecnicos</td>
               <td>25 minutos</td>
               <td>Há cerca de 2 meses</td>
-              <td>Concluido</td>
+              <td>
+                <S.Status statusColor="green">Concluido</S.Status>
+              </td>
             </tr>
             <tr>
               <td>Conserto de debitos tecnicos</td>
               <td>25 minutos</td>
               <td>Há cerca de 2 meses</td>
-              <td>Concluido</td>
+              <td>
+                <S.Status statusColor="yellow">Em andamento</S.Status>
+              </td>
             </tr>
             <tr>
               <td>Conserto de debitos tecnicos</td>
               <td>25 minutos</td>
               <td>Há cerca de 2 meses</td>
-              <td>Concluido</td>
+              <td>
+                <S.Status statusColor="red">Interrompido </S.Status>
+              </td>
             </tr>
             <tr>
               <td>Conserto de debitos tecnicos</td>
               <td>25 minutos</td>
               <td>Há cerca de 2 meses</td>
-              <td>Concluido</td>
+              <td>
+                <S.Status statusColor="green">Concluido</S.Status>
+              </td>
             </tr>
           </tbody>
         </table>

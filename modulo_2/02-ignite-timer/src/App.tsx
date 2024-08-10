@@ -3,8 +3,6 @@ import { defaultTheme } from './styles/themes/default'
 
 import { GlobalStyles } from './global'
 
-import { ButtonVariant } from './components/Button'
-
 import { BrowserRouter } from 'react-router-dom'
 import { RouterContainer } from './Router'
 
@@ -16,7 +14,6 @@ export function App() {
         <BrowserRouter>
           <RouterContainer />
         </BrowserRouter>
-        <ButtonVariant variant="success" />
       </div>
     </ThemeProvider>
   )
