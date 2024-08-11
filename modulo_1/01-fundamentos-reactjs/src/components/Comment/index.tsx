@@ -44,7 +44,8 @@ function Comment({comments, onHandleDalete}: CommentProps) {
 
                 <footer>
                     <button 
-                    onClick={() => handleAddLikePost(!isClick)}
+                    onClick={() => handleAddLikePost
+                    }
                     className='likeButton'
                     >
 
