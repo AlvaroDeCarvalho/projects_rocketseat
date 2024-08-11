@@ -9,7 +9,7 @@ import {ptBR } from 'date-fns/locale'
 
 
 
-function Post({id, author, content, data}: User) {
+function Post({ author, content, data}: User) {
 
     
     const [comments, setComments]= useState<string[]>([])
