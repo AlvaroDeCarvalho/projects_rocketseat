@@ -86,9 +86,12 @@ export const TasksAmountInput = styled(BaseInput)`
   width: 4rem;
 `
 
-export const PlayButoon = styled.button`
+export const BaseButoon = styled.button`
   width: 35.5rem;
-  background-color: ${(props) => props.theme['green-500']};
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   cursor: pointer;
   overflow: hidden;
@@ -99,10 +102,16 @@ export const PlayButoon = styled.button`
 
   border-radius: 8px;
   border: none;
-
-  &:disabled {
-    background-color: ${(props) => props.theme['green-500']};
+`
+export const StartCycleButton = styled(BaseButoon)`
+  background-color: ${(props) => props.theme['green-500']};
+  &:disabled:hover {
+    background-color: ${(props) => props.theme['green-700']};
     cursor: not-allowed;
     opacity: 0.7;
   }
+`
+
+export const StopCycleButton = styled(BaseButoon)`
+  background-color: ${(props) => props.theme['red-500']};
 `
