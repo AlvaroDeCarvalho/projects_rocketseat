@@ -5,15 +5,17 @@ import { GlobalStyles } from './global'
 
 import { BrowserRouter } from 'react-router-dom'
 import { RouterContainer } from './Router'
-
+import { CyclesContextProvider } from './contexts/CyclesContext'
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <div>
-        <GlobalStyles />
         <BrowserRouter>
-          <RouterContainer />
+          <CyclesContextProvider>
+            <RouterContainer />
+          </CyclesContextProvider>
         </BrowserRouter>
+        <GlobalStyles />
       </div>
     </ThemeProvider>
   )
