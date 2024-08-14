@@ -20,6 +20,8 @@ interface CyclesContextProps {
   activeCycle: CycleProps | undefined
   activeCycleId: string | null
   markCycleAsFinished: () => void
+  amountSecondsPassed: number
+  setAmountSecondsPassed: (seconds: number) => void
 }
 
 export const CyclesContext = createContext({} as CyclesContextProps)
@@ -37,6 +39,7 @@ type CycleValidadeScheme = zod.infer<typeof newCycleValidateSchema>
 export function Home() {
   const [cycles, setCycles] = useState<CycleProps[]>([])
   const [activeCycleId, setActiveCycleId] = useState<string | null>(null)
+  const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
 
   const newCycleForm = useForm<CycleValidadeScheme>({
     resolver: zodResolver(newCycleValidateSchema),
@@ -62,6 +65,10 @@ export function Home() {
     setActiveCycleId(newCycle.id)
 
     reset()
+  }
+
+  function InsertSecondsPassed(seconds: number) {
+    setAmountSecondsPassed(seconds)
   }
 
   function handleInterruptCycle() {
@@ -102,7 +109,9 @@ export function Home() {
       value={{
         activeCycle: activeCycles,
         activeCycleId: activeCycleId,
-        markCycleAsFinished
+        markCycleAsFinished,
+        setAmountSecondsPassed: InsertSecondsPassed,
+        amountSecondsPassed
       }}
     >
       <S.HomeContainer>

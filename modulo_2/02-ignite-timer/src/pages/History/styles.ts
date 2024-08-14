@@ -14,6 +14,8 @@ export const HistoryContainer = styled.main`
   padding: 3.5rem;
 
   display: flex;
+  max-width: 100%;
+  max-height: 100%;
   flex-direction: column;
 
   h1 {
@@ -26,7 +28,6 @@ export const HistoryList = styled.div`
   flex: 1;
   overflow: auto;
   margin-top: 2rem;
-
   table {
     width: 100%;
     border-collapse: collapse;
