@@ -32,14 +32,20 @@ export function Home() {
     }
   })
 
-  const { handleSubmit, watch /* , reset */ } = newCycleForm
+  const { handleSubmit, watch, reset } = newCycleForm
 
   const task = watch('task')
   console.log(cycles)
   return (
     <S.HomeContainer>
       {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-      <form action="" onSubmit={handleSubmit((state) => createNewCycle(state))}>
+      <form
+        action=""
+        onSubmit={handleSubmit((state) => {
+          createNewCycle(state)
+          reset()
+        })}
+      >
         <FormProvider {...newCycleForm}>
           <NewCycleForm />
         </FormProvider>

@@ -17,6 +17,7 @@ interface CycleProps {
   interruptedDate?: Date
   fineshedDate?: Date
 }
+
 interface CyclesContextProps {
   cycles: CycleProps[]
   activeCycle: CycleProps | undefined
@@ -63,7 +64,6 @@ export function CyclesContextProvider({ children }: ElementCycleProvider) {
       minutesAmount: data.minutesAmount,
       startData: new Date()
     }
-    console.log('data', data)
     setAmountSecondsPassed(0)
     setCycles((state) => [...state, newCycle])
     setActiveCycleId(newCycle.id)
