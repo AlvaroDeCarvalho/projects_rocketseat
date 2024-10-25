@@ -1,14 +1,19 @@
-import { RouterProvider } from 'react-router-dom'
 import './index.css'
+
+import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { RouterProvider } from 'react-router-dom'
+import { Toaster } from 'sonner'
+
+import { ThemeProvider } from './components/theme/theme-provider'
 import { router } from './routes'
-import { HelmetProvider, Helmet } from 'react-helmet-async'
-import {Toaster} from 'sonner'
 function App() {
   return (
     <HelmetProvider>
-      <Helmet titleTemplate='%s | pizza.shop' />
-      <Toaster richColors closeButton />
-      <RouterProvider router={router} />
+      <ThemeProvider defaultTheme="dark" storageKey="pizzashop-theme">
+        <Helmet titleTemplate="%s | pizza.shop" />
+        <Toaster richColors closeButton />
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </HelmetProvider>
   )
 }
