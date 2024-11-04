@@ -33,7 +33,7 @@ export function AccountMenu() {
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <Building className="h-4 w-4" />
-          <span>Perfil da loga</span>
+          <span>Perfil da loja</span>
         </DropdownMenuItem>
 
         <DropdownMenuItem className="text-rose-500 dark:text-rose-400">
