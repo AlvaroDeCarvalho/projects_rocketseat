@@ -1,18 +1,20 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Label } from '@radix-ui/react-label'
+import { useMutation } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
+import { RegisterRestaurant } from '@/api/register-restaurant'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
 const signUpForm = z.object({
   restaurantName: z.string(),
   email: z.string().email(),
-  manegerName: z.string(),
+  managerName: z.string(),
   phone: z.string().min(11),
   password: z.string().min(6),
 })
@@ -27,9 +29,14 @@ export function SignUp() {
     handleSubmit,
     formState: { isSubmitting },
   } = useForm<signUpFormType>({ resolver: zodResolver(signUpForm) })
+
+  const { mutateAsync: registerRestaurantFn } = useMutation({
+    mutationFn: RegisterRestaurant,
+  })
+
   const handelSignUp = async (data: signUpFormType) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      await registerRestaurantFn(data)
 
       toast.success('restaurante cadastrado com sucesso.', {
         action: {
@@ -37,7 +44,7 @@ export function SignUp() {
           onClick: () => handelSignUp(data),
         },
       })
-      navigate('/sign-in')
+      navigate(`/sign-in?email=${data.email}`)
     } catch (error) {
       console.log(error)
       toast.error('Erro ao cadastrar restaurante')
@@ -84,14 +91,14 @@ export function SignUp() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="manegerName" {...register}>
+              <Label htmlFor="managerName" {...register}>
                 seu Nome
               </Label>
               <Input
-                type="manegerName"
+                type="managerName"
                 className="input"
-                id="manegerName"
-                {...register('manegerName')}
+                id="managerName"
+                {...register('managerName')}
               />
             </div>
             <div className="space-y-2">

@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-axios.create({
-  baseURL: 'http://localhost:3333',
+import { env } from '../env'
+
+export const api = axios.create({
+  baseURL: env.VITE_API_URL,
   timeout: 1000,
 })
