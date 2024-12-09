@@ -1,40 +1,22 @@
+import { createStitches } from "@stitches/react";
 
 export const theme = {
-        colors: {
-            primary: '#fff',
-            secondary: 'hsl(206, 100%, 30%)',
-            background: '#1E1E1E',
-            text: 'hsl(206, 100%, 10%)',
-        },
-        space: {
-            1: '4px',
-            2: '8px',
-            3: '16px',
-            4: '24px',
-            5: '32px',
-            6: '40px',
-            7: '48px',
-            8: '56px',
-            9: '64px',
-            10: '72px',
-        },
-        fontSizes: {
-            1: '12px',
-            2: '14px',
-            3: '16px',
-            4: '20px',
-            5: '24px',
-            6: '32px',
-            7: '48px',
-            8: '64px',
-            9: '72px',
-            10: '96px',
-        },
-        fonts: {
-            default: 'Arial, sans-serif',
-        },
-        fontWeights: {
-            normal: '400',
-            bold: '700',
-        },
+    colors: {
+      white: '#FFF',
+
+      gray900: '#121214',
+      gray800: '#202024',
+      gray300: '#c4c4cc',
+      gray100: '#e1e1e6',
+
+      green500: '#00875f',
+      green300: '#00b37e',
+    },
+
+    fontSizes: {
+      md: '1.125rem',
+      lg: '1.25rem',
+      xl: '1.5rem',
+      '2xl': '2rem',
     }
+  }
