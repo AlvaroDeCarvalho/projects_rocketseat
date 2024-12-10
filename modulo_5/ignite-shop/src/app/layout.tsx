@@ -20,13 +20,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br" className={roboto.className}>
-        <ThemeProviderStyles>
               <body>
+        <ThemeProviderStyles>
                 <GlobalHeader>
                     {children}
                 </GlobalHeader>
-              </body>
         </ThemeProviderStyles>
+              </body>
     </html>
   )
 }

@@ -1,4 +1,3 @@
-
 'use client'
 
 import { HomeContainer, Product } from "./styles";
@@ -10,16 +9,11 @@ import camiseta2 from '../assets/Ignite/Type2.png'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { useEffect, useState } from "react";
 export default function Home() {
-  const [domLoaded, setDomLoaded] = useState(false);
 
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
+
   return (
     <>
-    {domLoaded && (
        <HomeContainer>
        <Swiper
        spaceBetween={50}
@@ -68,7 +62,6 @@ export default function Home() {
        </SwiperSlide>
        </Swiper>
    </HomeContainer>
-    )}
     </>
     
   );
